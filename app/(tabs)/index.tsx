@@ -1,54 +1,75 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { Image, StyleSheet } from "react-native";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { LinkToURL } from "@/components/LinkToURL";
+import { LinkToMail } from "@/components/LinkToMail";
+import { DevIcon } from "@/components/DevIcon";
+import { View } from "react-native";
+import { AnimatedImage } from "@/components/AnimatedImage";
 
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+      headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
+      headerImage={<AnimatedImage />}
+    >
+      <ThemedView style={styles.content}>
+        <ThemedText type="title">Renato Alves Junior</ThemedText>
+        <View style={{ marginVertical: 16 }} />
+
+        <ThemedView>
+          <ThemedText type="subtitle">Sobre mim</ThemedText>
+          <ThemedView>
+            <ThemedText>
+              Sou um desenvolvedor de software com experiência em
+              desenvolvimento de aplicativos web e desktop.
+            </ThemedText>
+            <ThemedText>
+              Atualmente estou cursando o 3º período do curso de Análise e
+              Desenvolvimento de Sistemas no Instituo Federal do Triângulo
+              Mineiro (IFTM).
+            </ThemedText>
+            <ThemedText>
+              Estou sempre em busca de novos desafios e conhecimentos.
+            </ThemedText>
+            <ThemedText>
+              Atualmente trabalho há 6 meses como desenvolvedor web na empresa{" "}
+              {"CODIUB"} em Uberaba, Minas Gerais.
+            </ThemedText>
+          </ThemedView>
+          <View style={{ marginVertical: 16 }} />
+          <ThemedText type="subtitle">Contato</ThemedText>
+          <ThemedView>
+            <ThemedText>
+              <DevIcon icon="email" />
+              E-mail:{" "}
+              <ThemedText type="link">
+                <LinkToMail href="renato.alvesjr00@gmail.com">
+                  renato.alvesjr00@gmail.com
+                </LinkToMail>
+              </ThemedText>
+            </ThemedText>
+            <ThemedText>
+              <DevIcon icon="linkedin" />
+              LinkedIn:{" "}
+              <ThemedText type="link">
+                <LinkToURL href="https://www.linkedin.com/in/renato-alves88/">
+                  @renato-alves88
+                </LinkToURL>
+              </ThemedText>
+            </ThemedText>
+            <ThemedText>
+              <DevIcon icon="github" />
+              Github:{" "}
+              <ThemedText type="link">
+                <LinkToURL href="https://www.github.com/renatoalvesjr">
+                  @renatoalvesjr
+                </LinkToURL>
+              </ThemedText>
+            </ThemedText>
+          </ThemedView>
+        </ThemedView>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -56,8 +77,8 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   stepContainer: {
@@ -69,6 +90,9 @@ const styles = StyleSheet.create({
     width: 290,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
+  },
+  content: {
+    width: "100%",
   },
 });
