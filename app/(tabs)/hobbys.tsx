@@ -1,5 +1,6 @@
 import { AnimatedImage } from "@/components/AnimatedImage";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedImage } from "@/components/ThemedImage";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { StyleSheet, Image, View } from "react-native";
@@ -24,10 +25,7 @@ export default function HobbysScreen() {
           </ThemedText>
         </ThemedView>
         <ThemedView>
-          <Image
-            source={require("@/assets/images/gmt.png")}
-            style={styles.image}
-          />
+          <ThemedImage src={require("@/assets/images/gmt.png")}></ThemedImage>
         </ThemedView>
       </ThemedView>
     </ParallaxScrollView>
