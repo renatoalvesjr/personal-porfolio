@@ -9,7 +9,7 @@ import {
 } from "../constants/Animation";
 import { Animated, Easing, ImageBackground, StyleSheet } from "react-native";
 
-export function AnimatedImage() {
+export function AnimatedError() {
   const initialValue = 0;
   const translateValue = useRef(new Animated.Value(initialValue)).current;
 
@@ -50,7 +50,7 @@ export function AnimatedImage() {
           ],
         },
       ]}
-      source={require("@/assets/images/image.png")}
+      source={require("@/assets/images/error.png")}
     />
   );
 }
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
   background: {
     position: "absolute",
     width: 1920,
-    height: 1200,
-    opacity: 0.2,
+    height: 600,
+    opacity: 0.5,
     transform: [
       {
         translateX: 0,

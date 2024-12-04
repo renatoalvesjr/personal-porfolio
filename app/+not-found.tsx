@@ -1,28 +1,38 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { Link, Stack } from "expo-router";
+import { StyleSheet } from "react-native";
 
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { AnimatedImage } from "@/components/AnimatedImage";
+import { AnimatedError } from "@/components/AnimatedError";
 
 export default function NotFoundScreen() {
   return (
-    <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
+      headerImage={<AnimatedError />}
+    >
       <ThemedView style={styles.container}>
-        <ThemedText type="title">This screen doesn't exist.</ThemedText>
-        <Link href="/" style={styles.link}>
-          <ThemedText type="link">Go to home screen!</ThemedText>
+        <ThemedText type="title">Página não encontrada</ThemedText>
+        <ThemedText>
+          A página que você está tentando acessar não existe ou foi removida.
+        </ThemedText>
+        <Link href={"/"}>
+          <ThemedText type="link" style={styles.link}>
+            Voltar para a página inicial
+          </ThemedText>
         </Link>
       </ThemedView>
-    </>
+    </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 20,
   },
   link: {
